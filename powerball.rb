@@ -1,17 +1,29 @@
 require_relative 'lib/class'
-powerball = Powerball.new
-
 puts 'Hello!'
-puts 'Welcome to Powerball Helper'
-puts 'This program will select at random a possible winning combination for the Powerball lottery!'
-puts "Type 'random' to see your winning number"
+puts 'Welcome to Lottery Helper'
+puts 'This program will select at random a possible winning combination for the Powerball or Mega Millions lottery!'
 
-input = gets.chomp.downcase
+loop do
+	puts "\nWhich game would you like to play?"
+	puts 'Power -- to play Powerball'
+	puts 'Mega -- to play Mega Millions'
+	puts 'Exit -- to exit Lottery Helper'
 
-if input == 'random'
-	puts "\nWe are selecting your winning numbers..."
-	puts '........'
-	puts "Your winning numbers are: #{powerball.random_select}"
-else
-	puts "\nSorry, I do not understand that command. It is possible that command has not been programed yet"
+	lottery = gets.chomp.downcase
+
+	if lottery == 'power'
+		power = Powerball.new
+		puts "\nWe are selecting your winning numbers..."
+		puts '........'
+		puts "Your winning Powerball numbers are: #{power.random_select}"
+	elsif lottery == 'mega'
+		mega = MegaMillions.new
+		puts "\nWe are selecting your winning numbers..."
+		puts '........'
+		puts "Your winning Mega Millions numbers are: #{mega.random_select}"
+	elsif lottery == 'exit'
+		break
+	else
+		puts 'Sorry, I do not understand your command.'
+	end
 end
