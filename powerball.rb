@@ -13,14 +13,14 @@ loop do
 
 	if lottery == 'power'
 		power = Powerball.new
-		puts "\nWe are selecting your winning numbers..."
+		puts "\nWe are selecting your Powerball numbers..."
 		puts '........'
-		puts "Your winning Powerball numbers are: #{power.random_select}"
+		power.random_select
 	elsif lottery == 'mega'
 		mega = MegaMillions.new
-		puts "\nWe are selecting your winning numbers..."
+		puts "\nWe are selecting your Mega Millions numbers..."
 		puts '........'
-		puts "Your winning Mega Millions numbers are: #{mega.random_select}"
+		mega.random_select
 	elsif lottery == 'exit'
 		break
 	else
